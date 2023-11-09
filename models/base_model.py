@@ -1,24 +1,27 @@
 #!/usr/bin/python3
+""" BaseModel class """
 
 
 import uuid
+import models
 from datetime import datetime
 time_format = "%Y-%m-%dT%H:%M:%S.%f"
-
 
 class BaseModel:
 
     def __init__(self, *args, **kwargs):
 
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
                 if key and key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.strptime(value, time_format)
+                    setattr(self, key, datetime.strptime(value, time_format))
+        if not kwargs:
+            models.storage.new(self)
 
     def __str__(self):
         
@@ -26,6 +29,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         
