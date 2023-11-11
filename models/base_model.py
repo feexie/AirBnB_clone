@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """ BaseModel class """
-
-
 import uuid
 import models
 from datetime import datetime
 time_format = "%Y-%m-%dT%H:%M:%S.%f"
+
 
 class BaseModel:
     """ representation of BaseModel """
@@ -28,7 +27,7 @@ class BaseModel:
     def __str__(self):
         """ __str__ repr """
 
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         """ save method """
@@ -46,4 +45,4 @@ class BaseModel:
             **self.__dict__,
             '__class__': self.__class__.__name__,
             'created_at': created_at_iso,
-            'updated_at': updated_at_iso }
+            'updated_at': updated_at_iso}
