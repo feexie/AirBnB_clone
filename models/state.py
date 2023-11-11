@@ -4,8 +4,6 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-	"""
-	initializing state class
-	"""
+    """initializing state class """
 
-	name = ""
+    name = ""
