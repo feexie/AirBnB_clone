@@ -7,6 +7,7 @@ class Place(BaseModel):
 	"""
 	initializing Place class
 	"""
+
 	city_id = ""
 	user_id = ""
 	name = ""

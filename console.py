@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, line):
         """Quit command to exit the program"""
-        print("Good Bye!")
+
         return True
 
     def help_quit(self):
@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
         """ overwriting the emptyline method """
         return False
 
-     # OR
+    # OR
         # pass
 
     def do_create(self, line):
@@ -100,7 +100,6 @@ class HBNBCommand(cmd.Cmd):
             #    del (storage.all()[new_str])
                 storage.save()
 
-
     def do_all(self, line):
         """ Print all instances in string representation """
         objects = []
@@ -116,8 +115,6 @@ class HBNBCommand(cmd.Cmd):
                     if clas[0] == st[0]:
                         objects.append(str(value))
                 print(objects)
-
-
 
     def do_update(self, line):
         """Update a class instance of a given id by adding or updating
