@@ -39,6 +39,7 @@ class FileStorage:
 
 	def new(self, obj):
 		''' set new object '''
+
 		if obj:
 			className = obj.__class__.__name__
 			obj_key = className + '.' + obj.id
