@@ -66,5 +66,5 @@ class FileStorage:
                     class_name = item["__class__"]
                     del item["__class__"]
                     self.new(eval(class_name)(**item))
-        except:
+        except Exception as e:
             pass
